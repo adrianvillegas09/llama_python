@@ -25,7 +25,7 @@ while True:
         print(questions[i]["main"] + "?")
         answer = input("Answer : ")
         output = llm(
-            "'Jackson: "
+            "'"
             + questions[i]["main"]
             + " "
             + answer
