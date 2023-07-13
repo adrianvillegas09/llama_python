@@ -30,7 +30,7 @@ while True:
             + "\n NAB: "
             + answer
             + "' \n "
-            + "You should only respond in JSON format as described below. RESPONSE FORMAT: {'response': 'response data'}. Ensure the response can be parsed by Javascript JSON.parse() function. What is the answer of above chat history in a word? Don't answer with long. A: ",
+            + "What is the answer of above chat history in a word? Don't answer with long. A: {answer}",
             max_tokens=64,
             # stop=["Q:", "\n"],
             echo=True,
