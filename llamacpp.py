@@ -30,7 +30,7 @@ while True:
             + "\n Neil: "
             + answer
             + "' \n "
-            + "What is "
+            + "If you can't know the exact answer of Neil's answer, return 'none'. What is "
             + json_fields[i]
             + " in a word in above chat from Neil's original answer?  A: ",
             max_tokens=64,
