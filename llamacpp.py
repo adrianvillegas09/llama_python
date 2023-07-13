@@ -30,7 +30,7 @@ while True:
             + "\n NAB: "
             + answer
             + "' \n "
-            + " What is the answer of above chat history in a word? I don't like long answer. If you are not sure about above chat's answer, answer 'NULL'. A: ",
+            + " What is the answer of above chat history in a word? I don't like long answer. If you are not sure about above chat's answer and there is no specific information, answer NULL. A: ",
             max_tokens=64,
             # stop=["Q:", "\n"],
             echo=True,
