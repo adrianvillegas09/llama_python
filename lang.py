@@ -30,9 +30,7 @@ chatgpt_chain = LLMChain(
 )
 
 print("GratitudeLLM loading...")
-output = chatgpt_chain.predict()
 
-while True:
-    # human_input = input("\nHuman: ")
-    output = chatgpt_chain.predict()
-    print(output)
+# human_input = input("\nHuman: ")
+output = chatgpt_chain.predict()
+print(output)
