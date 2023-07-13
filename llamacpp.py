@@ -30,7 +30,7 @@ while True:
             + " "
             + answer
             + "' \n "
-            + " What is the above chat history's answer in one word chunk? If you are not sure about above chat's answer, return 'None'. A: ",
+            + " What is the above chat history's answer in one word chunk? I don't like long answer. If you are not sure about above chat's answer, return 'None'. A: ",
             max_tokens=64,
             # stop=["Q:", "\n"],
             echo=True,
