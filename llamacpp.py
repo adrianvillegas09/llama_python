@@ -25,9 +25,9 @@ while True:
         print(questions[i]["main"] + "?")
         answer = input("Answer : ")
         output = llm(
-            "Q: '"
+            "Q: 'JAB: "
             + questions[i]["main"]
-            + " "
+            + "\n NAB: "
             + answer
             + "' \n "
             + " What is the above chat history's answer in one word chunk? I don't like long answer. If you are not sure about above chat's answer, return 'None'. A: ",
