@@ -30,7 +30,7 @@ while True:
             + " "
             + answer
             + "' \n "
-            + "I want you to answer the correct answer in one word chunk using above chat history. If you can't find or determine the correct answer similarily, return 'None'. A:",
+            + "I want you to answer the correct answer in one word chunk using above chat history. If you can't find or determine the correct answer similarily, return 'None'. A: ",
             max_tokens=64,
             stop=["Q:", "\n"],
             echo=True,
