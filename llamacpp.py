@@ -13,6 +13,7 @@ while True:
         + "\n Person B: "
         + answer
         + "' \n In above chat history, "
+        + inputdata
         + " A: ",
         max_tokens=64,
         stop=["Q:", "\n"],
