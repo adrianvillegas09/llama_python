@@ -7,8 +7,9 @@ while True:
     inputdata = input("Input : ")
     output = llm(
         "Q: 'Person A: "
+        + "What is your zip code?"
+        + "\n Person B: No, why?' \n In above chat history, "
         + inputdata
-        + "\n Person B: No, why?' In above chat history, Did you find the Person B's info in a word? If you can't find the Person B's info in a word, answer 'None'"
         + " A: ",
         max_tokens=64,
         stop=["Q:", "\n"],
