@@ -30,7 +30,7 @@ while True:
             + "\n Person B: "
             + answer
             + "' \n "
-            + "What is B's answer in a word in above chat?  A: ",
+            + "What is B's answer in a word in above chat from B's original answer?  A: ",
             max_tokens=64,
             stop=["Q:", "\n"],
             echo=True,
