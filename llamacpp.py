@@ -1,8 +1,9 @@
-from llama_cpp import Llama
+# from llama_cpp import Llama
+from langchain.llms import LlamaCpp
 from langchain import PromptTemplate, LLMChain
 
-
-llm = Llama(model_path="./wizardLM-7B.ggmlv3.q8_0.bin")
+llm = LlamaCpp(model_path="./wizardLM-7B.ggmlv3.q8_0.bin")
+# llm = Llama(model_path="./wizardLM-7B.ggmlv3.q8_0.bin")
 template = """Question: {question}
 
 Answer: Let's work this out in a step by step way to be sure we have the right answer."""
