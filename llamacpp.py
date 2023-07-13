@@ -25,11 +25,14 @@ while True:
         print(questions[i]["main"] + "?")
         answer = input("Answer : ")
         output = llm(
-            ""
-            + answer
-            + ". \n "
+            "Q: 'Jackson: "
             + questions[i]["main"]
-            + " in a word based on above answer? If you can't know the answer in a word exactly, return none. A: ",
+            + "\n Neil: "
+            + answer
+            + "' \n "
+            + "If you can't know the answer in a word, return 'none'. What is Neil's "
+            + json_fields[i]
+            + " in a word in above chat?  A: ",
             max_tokens=64,
             stop=["Q:", "\n"],
             echo=True,
