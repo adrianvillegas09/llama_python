@@ -32,7 +32,7 @@ while True:
             + "' \n "
             + "What is Neil's "
             + json_fields[i]
-            + " in above chat exactly in one word? If you can't find the Niel's correct answer correspond to the Jacson's question in a word, return 'none'. Must return the answer based on Niel's answer in one word. A: ",
+            + " in above chat exactly in one word? If you can't find the Niel's correct answer correspond to the Jacson's question or determine the answer in a word, return 'Hmm. I'm not sure about the answer'. Must return the answer based on Niel's answer in one word. A: ",
             max_tokens=64,
             stop=["Q:", "\n"],
             echo=True,
