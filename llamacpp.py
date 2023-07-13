@@ -5,15 +5,15 @@ inputdata = ""
 json_fields = ["zip_code", "work_tech", "company"]
 questions = [
     {
-        "main": "What's your zip code?",
+        "main": "What's your zip code",
         "addin_prompt": "",
     },
     {
-        "main": "Do you work in tech?",
+        "main": "Do you work in tech",
         "addin_prompt": "You should answer 'True' or 'False'",
     },
     {
-        "main": "Which company did you last work for?",
+        "main": "Which company did you last work for",
         "addin_prompt": "",
     },
 ]
@@ -22,7 +22,7 @@ i = 0
 while True:
     i = 0
     while i < 3:
-        print(questions[i]["main"])
+        print(questions[i]["main"] + "?")
         answer = input("Answer : ")
         output = llm(
             "Q: 'Person A: "
