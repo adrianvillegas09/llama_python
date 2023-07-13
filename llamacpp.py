@@ -25,12 +25,12 @@ while True:
         print(questions[i]["main"] + "?")
         answer = input("Answer : ")
         output = llm(
-            "'"
+            "Q: '"
             + questions[i]["main"]
             + " "
             + answer
             + "' \n "
-            + "Q: What is the top chat's answer in a word? A: ",
+            + " What is the top chat's answer in a word? A: ",
             max_tokens=64,
             # stop=["Q:", "\n"],
             echo=True,
