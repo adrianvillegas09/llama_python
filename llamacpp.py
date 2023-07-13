@@ -28,9 +28,9 @@ while True:
             "'"
             + answer
             + "' \n "
-            + "I want you to answer in a word based on above answer . If you can't know the answer in a word exactly, return none. "
+            + "If you can't know the answer in a word exactly, return none. "
             + questions[i]["main"]
-            + "  A: ",
+            + " in a word based on above answer? A: ",
             max_tokens=64,
             stop=["Q:", "\n"],
             echo=True,
