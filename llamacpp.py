@@ -6,7 +6,10 @@ inputdata = ""
 while True:
     inputdata = input("Input : ")
     output = llm(
-        "Q: " + inputdata + " A: No, why?",
+        "Q: 'A: "
+        + inputdata
+        + "B: No, why?' Can you answer the B's answer in a word?"
+        + " A: ",
         max_tokens=64,
         stop=["Q:", "\n"],
         echo=True,
