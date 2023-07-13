@@ -30,7 +30,7 @@ while True:
             + "\n NAB: "
             + answer
             + "' \n "
-            + "What is the answer of above chat history in a word? Don't answer with long. A: {answer}",
+            + "What is the answer of above chat history in a word? Don't answer with long. If you are not sure about the answer correctly, answer 'NULL'. A:",
             max_tokens=64,
             # stop=["Q:", "\n"],
             echo=True,
