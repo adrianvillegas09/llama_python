@@ -5,15 +5,15 @@ inputdata = ""
 json_fields = ["zip_code", "work_tech", "company"]
 questions = [
     {
-        "main": "What's your zip code",
+        "main": "What's your zip code?",
         "addin_prompt": "",
     },
     {
-        "main": "Do you work in tech",
+        "main": "Do you work in tech?",
         "addin_prompt": "You should answer 'True' or 'False'",
     },
     {
-        "main": "Which company did you last work for",
+        "main": "Which company did you last work for?",
         "addin_prompt": "",
     },
 ]
@@ -27,12 +27,10 @@ while True:
         output = llm(
             "Q: 'Jackson: "
             + questions[i]["main"]
-            + "\n Neil: "
+            + " "
             + answer
             + "' \n "
-            + "What is Neil's "
-            + json_fields[i]
-            + " in above chat exactly in one word? If you can't find the Niel's correct answer correspond to the Jacson's question or determine the answer in a word, return 'Hmm. I'm not sure about the answer'. Must return the answer based on Niel's answer in one word. A: ",
+            + "I want you to answer the correct answer in one word chunk using above chat history. If you can't find or determine the correct answer, return 'None' ",
             max_tokens=64,
             stop=["Q:", "\n"],
             echo=True,
