@@ -25,12 +25,11 @@ while True:
         print(questions[i]["main"] + "?")
         answer = input("Answer : ")
         output = llm(
-            "'"
+            ""
             + answer
-            + "' \n "
-            + "If you can't know the answer in a word exactly, return none. "
+            + ". \n "
             + questions[i]["main"]
-            + " in a word based on above answer? A: ",
+            + " in a word based on above answer? If you can't know the answer in a word exactly, return none. A: ",
             max_tokens=64,
             stop=["Q:", "\n"],
             echo=True,
