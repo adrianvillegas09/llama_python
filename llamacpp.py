@@ -8,7 +8,7 @@ while True:
     output = llm(
         "Q: 'A: "
         + inputdata
-        + "B: No, why?' Can you answer the B's answer in a word?"
+        + "B: No, why?' Can you review above chat history and summarize B's answer?"
         + " A: ",
         max_tokens=64,
         stop=["Q:", "\n"],

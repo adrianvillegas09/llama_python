@@ -15,7 +15,7 @@ conversational_pipeline = pipeline("text-generation", model=model, tokenizer=tok
 
 while True:
     # Get user input
-    user_input = input("User: ")
+    user_input = input("User: Hi!")
 
     # Generate response
     model_input = tokenizer.encode(
