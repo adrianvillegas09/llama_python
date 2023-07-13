@@ -31,7 +31,7 @@ while True:
             + answer
             + "' \n In above chat history, what is the "
             + json_fields[i]
-            + " in a word based on B's answer?  A: ",
+            + " in B's answer in a word?  A: ",
             max_tokens=64,
             stop=["Q:", "\n"],
             echo=True,
