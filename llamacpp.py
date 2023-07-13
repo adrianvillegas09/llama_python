@@ -1,13 +1,16 @@
 from llama_cpp import Llama
 
 llm = Llama(model_path="./wizardLM-7B.ggmlv3.q8_0.bin")
-output = llm(
-    """Q: Below is the chat history. 
-I want you to answer the correct answer in the above content in a word. If you can't reply the answer in a word similarily, reply 'None'.
-'A: What is your zip code?
- B:No, why?' A: """,
-    max_tokens=64,
-    stop=["Q:", "\n"],
-    echo=True,
-)
-print(output)
+inputdata = ""
+
+while True:
+    inputdata = input()
+    output = llm(
+        "Q: 'A: What is your zip code? B:No, why?'. Extract the info from above chat history."
+        + inputdata
+        + " A: ",
+        max_tokens=64,
+        stop=["Q:", "\n"],
+        echo=True,
+    )
+    print(output)
