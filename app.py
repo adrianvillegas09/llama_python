@@ -1,10 +1,10 @@
 from transformers import pipeline, AutoModelForCausalLM, AutoTokenizer
 
 # Load pre-trained model (weights)
-model = AutoModelForCausalLM.from_pretrained("lmsys/vicunna-13b-v1.3")
+model = AutoModelForCausalLM.from_pretrained("lmsys/vicuna-13b-v1.3")
 
 # Load pre-trained model tokenizer
-tokenizer = AutoTokenizer.from_pretrained("lmsys/vicunna-13b-v1.3")
+tokenizer = AutoTokenizer.from_pretrained("lmsys/vicuna-13b-v1.3")
 
 # Make sure all model parameters do not require gradients
 for param in model.parameters():
