@@ -30,7 +30,7 @@ while True:
             + " "
             + answer
             + "' \n "
-            + " What is the top chat's answer in a word? If you are not sure about above chat's answer, return null A: ",
+            + " What is the top chat's answer in a word? If you are not sure about above chat's answer, return None. A: ",
             max_tokens=64,
             # stop=["Q:", "\n"],
             echo=True,
