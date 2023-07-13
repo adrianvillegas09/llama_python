@@ -4,11 +4,9 @@ llm = Llama(model_path="./wizardLM-7B.ggmlv3.q8_0.bin")
 inputdata = ""
 
 while True:
-    inputdata = input()
+    inputdata = input("Input : ")
     output = llm(
-        "Q: 'A: What is your zip code? B:No, why?'. Extract the info from above chat history."
-        + inputdata
-        + " A: ",
+        "Q: " + inputdata + " A: No, why?",
         max_tokens=64,
         stop=["Q:", "\n"],
         echo=True,
