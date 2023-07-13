@@ -29,9 +29,8 @@ while True:
             + questions[i]["main"]
             + "\n Person B: "
             + answer
-            + "' \n In above chat history, what is the "
-            + json_fields[i]
-            + " in B's answer in a word?  A: ",
+            + "' \n In above chat history what is the "
+            + "B's answer in a word?  A: ",
             max_tokens=64,
             stop=["Q:", "\n"],
             echo=True,
