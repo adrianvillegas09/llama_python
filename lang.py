@@ -1,5 +1,5 @@
-# from langchain import PromptTemplate
-from langchain import LLMChain
+from langchain import PromptTemplate
+from langchain.chains import LLMChain
 from langchain.memory import ConversationBufferWindowMemory
 
 from langchain.llms import LlamaCpp
@@ -24,7 +24,7 @@ prompt = PromptTemplate.from_template(template)
 
 chatgpt_chain = LLMChain(
     llm=llm,
-    prompt=template,
+    prompt=prompt,
     verbose=False,
     memory=ConversationBufferWindowMemory(k=2),
 )
