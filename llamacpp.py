@@ -30,7 +30,9 @@ while True:
             + "\n Neil: "
             + answer
             + "' \n "
-            + "What is Neil's answer in a word in above chat from Neil's original answer?  A: ",
+            + "What is "
+            + json_fields[i]
+            + " in a word in above chat from Neil's original answer?  A: ",
             max_tokens=64,
             stop=["Q:", "\n"],
             echo=True,
