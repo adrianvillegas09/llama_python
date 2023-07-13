@@ -30,7 +30,7 @@ while True:
             + "\n Person B: "
             + answer
             + "' \n In above chat history, "
-            + inputdata
+            + questions[i]["main"]
             + " in the B's answer in a word?  A: ",
             max_tokens=64,
             stop=["Q:", "\n"],
