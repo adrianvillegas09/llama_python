@@ -29,8 +29,8 @@ while True:
             + questions[i]["main"]
             + "\n Person B: "
             + answer
-            + "' \n In above chat history what is the "
-            + "B's answer in a word?  A: ",
+            + "' \n "
+            + "What is B's answer in a word in above chat?  A: ",
             max_tokens=64,
             stop=["Q:", "\n"],
             echo=True,
