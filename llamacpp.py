@@ -30,7 +30,7 @@ while True:
             + " "
             + answer
             + "' \n "
-            + "I want you to answer the correct answer in one word using above chat history. A: ",
+            + "Q: What is the top chat's answer in a word? A: ",
             max_tokens=64,
             # stop=["Q:", "\n"],
             echo=True,
