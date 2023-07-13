@@ -32,7 +32,7 @@ while True:
             + "' \n "
             + "What is Neil's "
             + json_fields[i]
-            + " in above chat exactly in a word? If you can't know the answer in a word, return 'none'. A: ",
+            + " in above chat exactly in a word? If you can't know the Niel's correct answer in a word, return 'none'. A: ",
             max_tokens=64,
             stop=["Q:", "\n"],
             echo=True,
