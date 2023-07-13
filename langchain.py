@@ -9,7 +9,7 @@ from langchain.callbacks.streaming_stdout import StreamingStdOutCallbackHandler
 callback_manager = CallbackManager([StreamingStdOutCallbackHandler()])
 
 llm = LlamaCpp(
-    model_path="../models/wizardLM-7B.ggmlv3.q4_1.bin",
+    model_path="./wizardLM-7B.ggmlv3.q8_0.bin",
     callback_manager=callback_manager,
     verbose=True,
 )
