@@ -6,9 +6,9 @@ inputdata = ""
 while True:
     inputdata = input("Input : ")
     output = llm(
-        "Q: 'A: "
+        "Q: 'Person A: "
         + inputdata
-        + "B: No, why?' Can you review above chat history and summarize B's answer?"
+        + "\n Person B: No, why?' In above chat history, Is Person B answered the Person A's question?"
         + " A: ",
         max_tokens=64,
         stop=["Q:", "\n"],
