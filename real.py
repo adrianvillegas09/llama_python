@@ -26,9 +26,6 @@ db = FAISS.from_texts(
 
 llm = GPT4All(
     model="./ggml-gpt4all-j-v1.3-groovy.bin",
-    n_ctx=1000,
-    backend="gptj",
-    verbose=False,
 )
 
 qa = RetrievalQA.from_chain_type(
