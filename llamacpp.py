@@ -30,7 +30,7 @@ while True:
             + "\n NAB: "
             + answer
             + "' \n "
-            + "What is the answer from above content in one word chunk? Don't answer with long. If you are not sure about the answer correctly, answer 'NULL'. A: ",
+            + "What is the answer from above content in one word chunk? Don't answer with long. If you cannot find the answer correctly, answer 'NULL'. A: ",
             max_tokens=64,
             # stop=["Q:", "\n"],
             echo=True,
