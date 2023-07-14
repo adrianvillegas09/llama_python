@@ -16,8 +16,7 @@ embeddings = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-
 with open("./1.txt") as f:
     contents = f.read()
 texts = []
-for j in range(0, len(contents), 120):
-    texts.append(contents[j : j + 120])
+texts.append(contents)
 
 db = FAISS.from_texts(
     texts,
