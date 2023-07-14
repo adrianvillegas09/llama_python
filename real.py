@@ -38,7 +38,7 @@ qa = RetrievalQA.from_chain_type(
 # command = input("Input : ")
 res = qa(
     f"""
-  I want you to answer correctly in a word. If you can't find the correct answer, return 'None'.
+  I want to know the answer in a word correctly. If you can't find the correct answer, return 'None'. I want simple answer in a word.
 """
 )
 print(res["result"])
