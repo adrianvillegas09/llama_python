@@ -26,12 +26,12 @@ while True:
         answer = input("Answer : ")
         output = llm(
             "Q: "
-            + "answer 'None' if you are not sure about the answer. What is the answer in following content in a word?"
+            + "I need simple answer in a word from following content. '"
             + questions[i]["main"]
             + " "
             + answer
             # + questions[i]["addin_prompt"]
-            + " A: ",
+            + "' A: ",
             max_tokens=100,
             # stop=["Q:", "\n"],
             echo=True,
