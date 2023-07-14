@@ -26,7 +26,7 @@ while True:
         answer = input("Answer : ")
         output = llm(
             "Q: "
-            + "I need simple answer in a word from following content. '"
+            + "If you don't know about the answer, return 'None'. I need simple answer in a word from following content. '"
             + questions[i]["main"]
             + " "
             + answer
