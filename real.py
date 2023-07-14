@@ -34,12 +34,12 @@ qa = RetrievalQA.from_chain_type(
     verbose=False,
 )
 
-while True:
-    # command = input("Input : ")
-    res = qa(
-        f"""
-      What is B's answer in one word chunk for A's question?. If you can't find the correct answer, return 'None'. 
-      Extract it from the text.
-  """
-    )
-    print(res["result"])
+# while True:
+# command = input("Input : ")
+res = qa(
+    f"""
+  What is B's answer in one word chunk for A's question?. If you can't find the correct answer, return 'None'. 
+  Extract it from the text.
+"""
+)
+print(res["result"])
