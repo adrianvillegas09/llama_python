@@ -30,12 +30,13 @@ while True:
             + "\n NAB: "
             + answer
             + "' \n "
-            + "What is the answer from above content in one word chunk? Don't answer with long. If you cannot find the answer correctly, answer 'NULL'. A: ",
+            + "What is the answer from above content in one word chunk? Don't answer with long. If you cannot find the answer correctly, answer 'NULL'. "
+            + " A: ",
             max_tokens=64,
             # stop=["Q:", "\n"],
             echo=True,
         )
-        print(output)
+        print(output.choices.text.find("NULL"))
         i = i + 1
 
     # What is the zip code in Person B's answer in a word?
