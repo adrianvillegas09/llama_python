@@ -30,7 +30,7 @@ while True:
             + "\n person2: "
             + answer
             + "' \n "
-            + "In above content, Write what person2 answered in a word. "
+            + "In above content, What is the answer of person2 in a word? If you can't find the answer, answer 'None' "
             + questions[i]["addin_prompt"]
             + " A: ",
             max_tokens=100,
