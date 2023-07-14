@@ -31,6 +31,7 @@ while True:
             + answer
             + "' \n "
             + "What is the answer from above content in one word chunk? Don't answer with long. If you cannot find the answer correctly, answer 'NULL'. "
+            + questions[i]["addin_prompt"]
             + " A: ",
             max_tokens=64,
             # stop=["Q:", "\n"],
