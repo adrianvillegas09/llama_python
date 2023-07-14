@@ -10,7 +10,7 @@ questions = [
     },
     {
         "main": "Do you work in tech?",
-        "addin_prompt": "If answer is like yes, answer 'True', and if answer is like no, answer 'False'",
+        "addin_prompt": "If person2's answer is like yes, answer 'True', and if person2's answer is like no, answer 'False'",
     },
     {
         "main": "Which company did you last work for?",
@@ -30,7 +30,7 @@ while True:
             + "\n person2: "
             + answer
             + "' \n "
-            + "What is the person2's answer corresponding to person1's question from above content in a word? Don't answer with long. If you cannot find the answer correctly, answer 'NULL'. "
+            + "What is the person2's answer corresponding to person1's question from above content in a word? Don't answer with long. If you cannot find the person2's answer correctly, answer 'NULL'. "
             + questions[i]["addin_prompt"]
             + " A: ",
             max_tokens=100,
