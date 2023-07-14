@@ -10,7 +10,7 @@ questions = [
     },
     {
         "main": "Do you work in tech?",
-        "addin_prompt": "If Answer is like Yes, answer 'True', If like No, answer 'False'",
+        "addin_prompt": "If chat's answer is like Yes, answer 'True', If like No, answer 'False'",
     },
     {
         "main": "Which company did you last work for?",
@@ -31,7 +31,7 @@ while True:
             + answer
             + " "
             + "What is the answer in above content in a word? If you can't find the answer, answer 'None' "
-            + questions[i]["addin_prompt"]
+            # + questions[i]["addin_prompt"]
             + " A: ",
             max_tokens=100,
             # stop=["Q:", "\n"],
