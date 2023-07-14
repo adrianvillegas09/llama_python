@@ -10,7 +10,7 @@ questions = [
     },
     {
         "main": "Do you work in tech?",
-        "addin_prompt": "You should answer 'True' if the answer is like yes or 'False' if the answer is like no",
+        "addin_prompt": "If answer is like yes, answer 'True', and if answer is like no, answer 'False'",
     },
     {
         "main": "Which company did you last work for?",
