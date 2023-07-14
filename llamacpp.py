@@ -25,13 +25,13 @@ while True:
         print(questions[i]["main"] + "?")
         answer = input("Answer : ")
         output = llm(
-            "Q: "
-            + "If you don't know about the answer, return 'None'. I need simple answer in a word from following content. '"
+            "Q: '"
             + questions[i]["main"]
             + " "
             + answer
+            + "'If you don't know about the answer, return 'None'. I need simple answer in a word from above content."
             # + questions[i]["addin_prompt"]
-            + "' A: ",
+            + " A: ",
             max_tokens=100,
             stop=["Q:", "\n"],
             echo=True,
