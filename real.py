@@ -8,20 +8,28 @@ from langchain.vectorstores import Chroma
 
 embeddings = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
 
-loader = TextLoader("./1.txt")
-documents = loader.load()
-text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=0)
-texts = text_splitter.split_documents(documents)
+# loader = TextLoader("./1.txt")
+# documents = loader.load()
+# text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=0)
+# texts = text_splitter.split_documents(documents)
 
-print(texts)
+with open("./1.txt") as f:
+    contents = f.read()
+texts = []
+for j in range(0, len(contents), 120):
+    texts.append(contents[j : j + 120])
 
-db = Chroma.from_documents(
+db = Chroma.from_texts(
     texts,
     embeddings,
 )
 
 llm = GPT4All(
-    model="./ggml-gpt4all-j-v1.3-groovy.bin", n_ctx=1000, backend="gptj", verbose=False
+    model="./ggml-gpt4all-j-v1.3-groovy.bin",
+    metadatas=[{"text": t} for t in texts],
+    n_ctx=1000,
+    backend="gptj",
+    verbose=False,
 )
 
 qa = RetrievalQA.from_chain_type(
