@@ -36,7 +36,11 @@ while True:
             # stop=["Q:", "\n"],
             echo=True,
         )
-        print(output["choices"][0]["text"].find("A: "))
+
+        answer_point = output["choices"][0]["text"].find("A: ")
+        sub_answer = output["choices"][0]["text"][answer_point:]
+
+        print(sub_answer)
         i = i + 1
 
     # What is the zip code in Person B's answer in a word?
