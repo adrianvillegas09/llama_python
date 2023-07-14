@@ -34,10 +34,11 @@ qa = RetrievalQA.from_chain_type(
     verbose=False,
 )
 
-res = qa(
-    f"""
-    I want you to answer B's answer in a word.
-    Extract it from the text.
-"""
-)
-print(res["result"])
+while True:
+    res = qa(
+        f"""
+      What is B's answer in a word?. If you can't find the correct answer, return 'None'. 
+      Extract it from the text.
+  """
+    )
+    print(res["result"])
