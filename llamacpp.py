@@ -36,7 +36,7 @@ while True:
             # stop=["Q:", "\n"],
             echo=True,
         )
-        print(output["choices"])
+        print(output["choices"][0].text)
         i = i + 1
 
     # What is the zip code in Person B's answer in a word?
