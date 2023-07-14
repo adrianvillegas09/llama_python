@@ -3,7 +3,7 @@ from langchain.document_loaders import TextLoader
 from langchain.embeddings import HuggingFaceEmbeddings
 from langchain.llms import GPT4All
 from langchain.text_splitter import RecursiveCharacterTextSplitter
-from langchain.vectorstores import Chroma
+from langchain.vectorstores import FAISS
 
 
 embeddings = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
@@ -19,7 +19,7 @@ texts = []
 for j in range(0, len(contents), 120):
     texts.append(contents[j : j + 120])
 
-db = Chroma.from_texts(
+db = FAISS.from_texts(
     texts,
     embeddings,
 )
