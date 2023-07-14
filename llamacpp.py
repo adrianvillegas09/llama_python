@@ -25,11 +25,11 @@ while True:
         print(questions[i]["main"] + "?")
         answer = input("Answer : ")
         output = llm(
-            "Q: '"
+            "Q: "
             + questions[i]["main"]
-            + "\n "
+            + " "
             + answer
-            + "' \n "
+            + " "
             + "What is the answer in above content in a word? If you can't find the answer, answer 'None' "
             + questions[i]["addin_prompt"]
             + " A: ",
