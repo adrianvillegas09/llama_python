@@ -29,7 +29,7 @@ while True:
             + questions[i]["main"]
             + " "
             + answer
-            + "'If you don't know about the answer, return 'None'. I need simple answer in a word from above content."
+            + "'If you don't know about the answer, return 'None'. I need to know simple answer in a word from above content. Answer me only simple answer in a word"
             # + questions[i]["addin_prompt"]
             + " A: ",
             max_tokens=100,
