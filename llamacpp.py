@@ -26,7 +26,7 @@ while True:
         answer = input("Answer : ")
         output = llm(
             "Q: "
-            + "answer 'None' if answer is not correct to question. What is the answer in following content in a word?"
+            + "answer 'None' if you are not sure about the answer. What is the answer in following content in a word?"
             + questions[i]["main"]
             + " "
             + answer
