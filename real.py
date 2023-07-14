@@ -17,7 +17,6 @@ texts = text_splitter.split_documents(documents)
 db = Chroma.from_documents(
     texts,
     embeddings,
-    persist_directory="db",
 )
 
 llm = GPT4All(
