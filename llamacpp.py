@@ -25,9 +25,9 @@ while True:
         print(questions[i]["main"] + "?")
         answer = input("Answer : ")
         output = llm(
-            "Q: 'person1: "
+            "Q: '"
             + questions[i]["main"]
-            + "\n person2: "
+            + "\n "
             + answer
             + "' \n "
             + "In above content, What is the answer of person2 in a word? If you can't find the answer, answer 'None' "
