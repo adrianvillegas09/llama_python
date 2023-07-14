@@ -38,7 +38,7 @@ qa = RetrievalQA.from_chain_type(
 # command = input("Input : ")
 res = qa(
     f"""
-  What is B's answer in one word chunk for A's question?. If you can't find the correct answer, return 'None'.
+  I want you to answer correctly in a word. If you can't find the correct answer, return 'None'.
 """
 )
 print(res["result"])
