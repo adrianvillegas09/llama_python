@@ -30,7 +30,7 @@ while True:
             + "\n person2: "
             + answer
             + "' \n "
-            + "What is the person1's answer from above content in one word chunk? Don't answer with long. If you cannot find the answer correctly, answer 'NULL'. "
+            + "What is the person2's answer from above content in one word chunk? Don't answer with long. If you cannot find the answer correctly, answer 'NULL'. "
             + questions[i]["addin_prompt"]
             + " A: ",
             max_tokens=100,
