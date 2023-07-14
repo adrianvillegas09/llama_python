@@ -24,7 +24,7 @@ db = FAISS.from_texts(
 )
 
 llm = GPT4All(
-    model="./ggml-gpt4all-j-v1.3-groovy.bin",
+    model="./model.bin",
 )
 
 qa = RetrievalQA.from_chain_type(
