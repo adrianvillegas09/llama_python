@@ -1,5 +1,5 @@
 from langchain.chains import RetrievalQA
-from langchain.document_loaders import PyPDFLoader
+from langchain.document_loaders import TextLoader
 from langchain.embeddings import HuggingFaceEmbeddings
 from langchain.llms import GPT4All
 from langchain.text_splitter import RecursiveCharacterTextSplitter
@@ -8,8 +8,14 @@ from pdf2image import convert_from_path
 
 
 embeddings = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
+
+loader = TextLoader("./1.txt")
+documents = loader.load()
+text_splitter = CharacterTextSplitter(chunk_size=1000, chunk_overlap=0)
+texts = text_splitter.split_documents(documents)
+
 db = Chroma.from_documents(
-    ["A: What is your zip code? B: It's 90232. not 23212"],
+    texts,
     embeddings,
     persist_directory="db",
 )
@@ -22,7 +28,6 @@ qa = RetrievalQA.from_chain_type(
     llm=llm,
     chain_type="stuff",
     retriever=db.as_retriever(search_kwargs={"k": 3}),
-    return_source_documents=True,
     verbose=False,
 )
 

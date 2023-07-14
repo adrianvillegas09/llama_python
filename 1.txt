@@ -1,0 +1,2 @@
+A: What is your zip code? 
+B: It's 90232. not 23212.
