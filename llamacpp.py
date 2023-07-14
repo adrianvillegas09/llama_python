@@ -26,11 +26,10 @@ while True:
         answer = input("Answer : ")
         output = llm(
             "Q: "
+            + "If you can't find the answer, answer 'None'. What is the answer in following content in a word?"
             + questions[i]["main"]
             + " "
             + answer
-            + " "
-            + "What is the answer in above content in a word? If you can't find the answer, answer 'None' "
             # + questions[i]["addin_prompt"]
             + " A: ",
             max_tokens=100,
