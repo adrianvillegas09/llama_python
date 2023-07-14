@@ -25,9 +25,9 @@ while True:
         print(questions[i]["main"] + "?")
         answer = input("Answer : ")
         output = llm(
-            "Q: 'JAB: "
+            "Q: '"
             + questions[i]["main"]
-            + "\n NAB: "
+            + "\n "
             + answer
             + "' \n "
             + "What is the answer from above content in one word chunk? Don't answer with long. If you cannot find the answer correctly, answer 'NULL'. "
