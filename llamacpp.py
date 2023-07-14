@@ -33,7 +33,7 @@ while True:
             + "What is the answer from above content in one word chunk? Don't answer with long. If you cannot find the answer correctly, answer 'NULL'. "
             + questions[i]["addin_prompt"]
             + " A: ",
-            max_tokens=64,
+            max_tokens=100,
             # stop=["Q:", "\n"],
             echo=True,
         )
