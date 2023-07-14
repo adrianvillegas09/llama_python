@@ -40,6 +40,8 @@ while True:
         answer_point = output["choices"][0]["text"].find("A: ")
         sub_answer = output["choices"][0]["text"][answer_point:]
 
+        print(sub_answer.find("NULL"))
+
         print(sub_answer)
         i = i + 1
 
