@@ -1,6 +1,6 @@
 from llama_cpp import Llama
 
-llm = Llama(model_path="./model.bin")
+llm = Llama(model_path="././ggml-gpt4all-j-v1.3-groovy.bin")
 inputdata = ""
 json_fields = ["zip_code", "work_tech", "company"]
 questions = [
