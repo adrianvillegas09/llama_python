@@ -25,12 +25,12 @@ while True:
         print(questions[i]["main"] + "?")
         answer = input("Answer : ")
         output = llm(
-            "Q: 'CHAT HISTORY -"
+            "Q: 'person1: "
             + questions[i]["main"]
-            + "\n -"
+            + "\n person2: "
             + answer
             + "' \n "
-            + "What is the answer from above content in one word chunk? Don't answer with long. If you cannot find the answer correctly, answer 'NULL'. "
+            + "What is the person1's answer from above content in one word chunk? Don't answer with long. If you cannot find the answer correctly, answer 'NULL'. "
             + questions[i]["addin_prompt"]
             + " A: ",
             max_tokens=100,
