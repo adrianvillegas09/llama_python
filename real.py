@@ -4,7 +4,6 @@ from langchain.embeddings import HuggingFaceEmbeddings
 from langchain.llms import GPT4All
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.vectorstores import Chroma
-from pdf2image import convert_from_path
 
 
 embeddings = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
@@ -13,6 +12,8 @@ loader = TextLoader("./1.txt")
 documents = loader.load()
 text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=0)
 texts = text_splitter.split_documents(documents)
+
+print(texts)
 
 db = Chroma.from_documents(
     texts,
