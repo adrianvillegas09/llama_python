@@ -27,7 +27,7 @@ llm = GPT4All(
 qa = RetrievalQA.from_chain_type(
     llm=llm,
     chain_type="stuff",
-    retriever=db.as_retriever(search_kwargs={"k": 3}),
+    retriever=db.as_retriever(),
     verbose=False,
 )
 
