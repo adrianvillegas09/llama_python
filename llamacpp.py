@@ -1,6 +1,6 @@
 from llama_cpp import Llama
 
-llm = Llama(model_path="./wizardLM-7B.ggmlv3.q8_0.bin")
+llm = Llama(model_path="./model.bin")
 inputdata = ""
 json_fields = ["zip_code", "work_tech", "company"]
 questions = [
