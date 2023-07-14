@@ -33,7 +33,7 @@ while True:
             # + questions[i]["addin_prompt"]
             + "' A: ",
             max_tokens=100,
-            # stop=["Q:", "\n"],
+            stop=["Q:", "\n"],
             echo=True,
         )
 
