@@ -5,6 +5,7 @@ import torch
 model = "tiiuae/falcon-7b"
 
 tokenizer = AutoTokenizer.from_pretrained(model)
+
 pipeline = transformers.pipeline(
     "text-generation",
     model=model,
