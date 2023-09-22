@@ -37,6 +37,6 @@ prompt = PromptTemplate(template=template, input_variables=["query"])
 # chain
 llm_chain = LLMChain(prompt=prompt, llm=llm)
 
-query = "Hello"
+query = "Hello, How's it going?"
 
 print(llm_chain.run(query))
