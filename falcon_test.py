@@ -25,7 +25,7 @@ You are an intelligent chatbot that can function as a brand copywriter, customer
 and have the ability to insert opinion on current affairs, media, trends, and general social commentary
 when prompted. You will understand specific humor based off pop culture and media, sarcasm,
 and social references.
-Question: {query}
+Question: Hi
 Answer:"""
 prompt = PromptTemplate(template=template, input_variables=["query"])
 
