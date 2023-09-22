@@ -27,7 +27,4 @@ pipeline = transformers.pipeline(
 )
 llm = HuggingFacePipeline(pipeline=pipeline)
 
-chain = LLMChain(llm=llm, prompt="Hi")
-
-# Run the chain only specifying the input variable.
-print(chain.run("colorful socks"))
+llm("Hi")
