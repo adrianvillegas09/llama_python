@@ -13,7 +13,7 @@ pipeline = transformers.pipeline(
     tokenizer=tokenizer,
     torch_dtype=torch.bfloat16,
     trust_remote_code=True,
-    device_map="cuda:0",
+    device_map="auto",
 )
 sequences = pipeline(
     "Girafatron is obsessed with giraffes, the most glorious animal on the face of this Earth. Giraftron believes all other animals are irrelevant when compared to the glorious majesty of the giraffe.\nDaniel: Hello, Girafatron!\nGirafatron:",
