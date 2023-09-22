@@ -56,18 +56,18 @@ llm = HuggingFacePipeline(pipeline=pipeline, model_kwargs={"temperature": 0})
 # Define Template
 # conversational
 
-template = """
-You are an intelligent chatbot that can function as a brand copywriter, customer service manager,
-and have the ability to insert opinion on current affairs, media, trends, and general social commentary
-when prompted. You will understand specific humor based off pop culture and media, sarcasm,
-and social references.
-Question: {query}
-Answer:"""
-prompt = PromptTemplate(template=template, input_variables=["query"])
+# template = """
+# You are an intelligent chatbot that can function as a brand copywriter, customer service manager,
+# and have the ability to insert opinion on current affairs, media, trends, and general social commentary
+# when prompted. You will understand specific humor based off pop culture and media, sarcasm,
+# and social references.
+# Question: {query}
+# Answer:"""
+# prompt = PromptTemplate(template=template, input_variables=["query"])
 
-# chain
-llm_chain = LLMChain(prompt=prompt, llm=llm)
+# # chain
+# llm_chain = LLMChain(prompt=prompt, llm=llm)
 
-query = "How do i pay for a service at the market? Write me an approach for this"
+# query = "How do i pay for a service at the market? Write me an approach for this"
 
-print(llm_chain.run(query))
+# print(llm_chain.run(query))
