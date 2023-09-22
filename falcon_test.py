@@ -15,21 +15,21 @@ rrmodel = AutoModelForCausalLM.from_pretrained(
 
 tokenizer = AutoTokenizer.from_pretrained(model)
 
-# input_text = "Once upon a time"
-# input_ids = tokenizer.encode(input_text, return_tensors="pt")
+input_text = "Once upon a time"
+input_ids = tokenizer.encode(input_text, return_tensors="pt")
 
-# attention_mask = torch.ones(input_ids.shape)
+attention_mask = torch.ones(input_ids.shape)
 
-# output = rrmodel.generate(
-#     input_ids,
-#     attention_mask=attention_mask,
-#     max_length=200,
-#     do_sample=True,
-#     top_k=10,
-#     num_return_sequences=1,
-#     eos_token_id=tokenizer.eos_token_id,
-# )
+output = rrmodel.generate(
+    input_ids,
+    attention_mask=attention_mask,
+    max_length=200,
+    do_sample=True,
+    top_k=10,
+    num_return_sequences=1,
+    eos_token_id=tokenizer.eos_token_id,
+)
 
-# output_text = tokenizer.decode(output[0], skip_special_tokens=True)
+output_text = tokenizer.decode(output[0], skip_special_tokens=True)
 
-# print(output_text)
+print(output_text)
