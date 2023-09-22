@@ -2,6 +2,7 @@ from transformers import AutoTokenizer, AutoModelForCausalLM
 import transformers
 import torch
 from langchain.llms import HuggingFacePipeline
+from langchain.chains import LLMChain
 
 print(torch.cuda.is_available())
 
@@ -25,4 +26,8 @@ pipeline = transformers.pipeline(
     device_map="auto",
 )
 llm = HuggingFacePipeline(pipeline=pipeline)
-llm(prompt="Hi")
+
+chain = LLMChain(llm=llm, prompt="Hi")
+
+# Run the chain only specifying the input variable.
+print(chain.run("colorful socks"))
