@@ -13,6 +13,8 @@ rrmodel = AutoModelForCausalLM.from_pretrained(
     device_map="auto",
 )
 
+rrmodel = rrmodel.to("cpu")
+
 tokenizer = AutoTokenizer.from_pretrained(model)
 
 input_text = "Once upon a time"
