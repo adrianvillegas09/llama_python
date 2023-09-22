@@ -10,8 +10,10 @@ rrmodel = AutoModelForCausalLM.from_pretrained(
     model,
     torch_dtype=torch.bfloat16,
     trust_remote_code=True,
-    device_map="cuda",
+    device_map="auto",
 )
+
+rrmodel = rrmodel.to("cuda:0")
 
 tokenizer = AutoTokenizer.from_pretrained(model)
 
