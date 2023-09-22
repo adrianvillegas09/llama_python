@@ -2,7 +2,7 @@ from transformers import AutoTokenizer, AutoModelForCausalLM
 import transformers
 import torch
 from langchain.llms import HuggingFacePipeline
-from langchain.chains import RetrievalQA
+from langchain.chains import ConversationChain
 
 print(torch.cuda.is_available())
 
@@ -20,7 +20,9 @@ pipeline = transformers.pipeline(
 )
 llm = HuggingFacePipeline(pipeline=pipeline)
 
-qa = RetrievalQA.from_chain_type(llm=llm, chain_type="stuff")
-
-# Run the chain only specifying the input variable.
-print(qa("Hi!"))
+conversation = ConversationChain(llm=llm)
+print(
+    conversation.run(
+        "Translate this sentence from English to French: I love programming."
+    )
+)
