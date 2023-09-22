@@ -2,7 +2,7 @@ from transformers import AutoTokenizer, AutoModelForCausalLM
 import transformers
 import torch
 from langchain.llms import HuggingFacePipeline
-from langchain.chains import LLMChain
+from langchain.chains import RetrievalQA
 
 print(torch.cuda.is_available())
 
@@ -16,18 +16,11 @@ pipeline = transformers.pipeline(
     tokenizer=tokenizer,
     torch_dtype=torch.bfloat16,
     trust_remote_code=True,
-    max_length=700,
-    temperature=0,
-    top_p=0.95,
-    top_k=10,
-    repetition_penalty=1.15,
-    num_return_sequences=1,
-    pad_token_id=tokenizer.eos_token_id,
-    device_map="auto",
+    device_map="cuda:0",
 )
 llm = HuggingFacePipeline(pipeline=pipeline)
 
-chain = LLMChain(llm=llm, prompt="Hi")
+qa = RetrievalQA.from_chain_type(llm=llm, chain_type="stuff")
 
 # Run the chain only specifying the input variable.
-print(chain.run("colorful socks"))
+print(qa("Hi!"))
