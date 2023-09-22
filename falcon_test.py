@@ -76,6 +76,8 @@ from transformers import AutoTokenizer, AutoModelForCausalLM
 import transformers
 import torch
 
+print(torch.cuda.is_available())
+
 model = "tiiuae/falcon-7b-instruct"
 
 rrmodel = AutoModelForCausalLM.from_pretrained(
