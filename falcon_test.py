@@ -4,6 +4,9 @@ import torch
 from langchain.llms import HuggingFacePipeline
 from langchain import PromptTemplate, LLMChain
 
+from flask import Flask, request, jsonify, render_template
+from flask_cors import CORS
+
 print(torch.cuda.is_available())
 
 model = "tiiuae/falcon-7b-instruct"
@@ -32,6 +35,6 @@ prompt = PromptTemplate(template=template, input_variables=["query"])
 # chain
 llm_chain = LLMChain(prompt=prompt, llm=llm)
 
-query = "Hi, How's it going?"
+query = "Hello"
 
 print(llm_chain.run(query))
