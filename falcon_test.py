@@ -18,6 +18,8 @@ pipeline = transformers.pipeline(
     model=model,
     tokenizer=tokenizer,
     torch_dtype=torch.bfloat16,
+    max_length=700,
+    temperature=0,
     trust_remote_code=True,
     device_map="cuda:0",
 )
