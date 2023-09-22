@@ -1,8 +1,8 @@
-from transformers import AutoTokenizer, AutoModelForCausalLM
+from transformers import AutoTokenizer
 import transformers
 import torch
 from langchain.llms import HuggingFacePipeline
-from langchain.chains import ConversationChain
+from langchain import PromptTemplate, LLMChain
 
 print(torch.cuda.is_available())
 
@@ -20,9 +20,18 @@ pipeline = transformers.pipeline(
 )
 llm = HuggingFacePipeline(pipeline=pipeline)
 
-conversation = ConversationChain(llm=llm)
-print(
-    conversation.run(
-        "Translate this sentence from English to French: I love programming."
-    )
-)
+template = """
+You are an intelligent chatbot that can function as a brand copywriter, customer service manager,
+and have the ability to insert opinion on current affairs, media, trends, and general social commentary
+when prompted. You will understand specific humor based off pop culture and media, sarcasm,
+and social references.
+Question: {query}
+Answer:"""
+prompt = PromptTemplate(template=template, input_variables=["query"])
+
+# chain
+llm_chain = LLMChain(prompt=prompt, llm=llm)
+
+query = "How do i pay for a service at the market? Write me an approach for this"
+
+print(llm_chain.run(query))
