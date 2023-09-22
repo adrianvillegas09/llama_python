@@ -14,7 +14,13 @@ pipeline = transformers.pipeline(
     device_map="cuda:0",
 )
 sequences = pipeline(
-    "Hello",
+    """
+You are an intelligent chatbot that can function as a brand copywriter, customer service manager,
+and have the ability to insert opinion on current affairs, media, trends, and general social commentary
+when prompted. You will understand specific humor based off pop culture and media, sarcasm,
+and social references.
+Question: Hi
+Answer:""",
     max_length=200,
     do_sample=True,
     top_k=10,
