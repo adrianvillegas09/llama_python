@@ -1,37 +1,28 @@
 from transformers import AutoTokenizer, AutoModelForCausalLM
 import transformers
 import torch
+from langchain.llms import HuggingFacePipeline
 
 print(torch.cuda.is_available())
 
 model = "tiiuae/falcon-7b-instruct"
 
-rrmodel = AutoModelForCausalLM.from_pretrained(
-    model,
+tokenizer = AutoTokenizer.from_pretrained(model)
+torch.cuda.is_available()
+pipeline = transformers.pipeline(
+    "text-generation",
+    model=model,
+    tokenizer=tokenizer,
     torch_dtype=torch.bfloat16,
     trust_remote_code=True,
+    max_length=700,
+    temperature=0,
+    top_p=0.95,
+    top_k=10,
+    repetition_penalty=1.15,
+    num_return_sequences=1,
+    pad_token_id=tokenizer.eos_token_id,
     device_map="auto",
 )
-
-rrmodel = rrmodel.to("cpu")
-
-tokenizer = AutoTokenizer.from_pretrained(model)
-
-input_text = "Once upon a time"
-input_ids = tokenizer.encode(input_text, return_tensors="pt")
-
-attention_mask = torch.ones(input_ids.shape)
-
-output = rrmodel.generate(
-    input_ids,
-    attention_mask=attention_mask,
-    max_length=200,
-    do_sample=True,
-    top_k=10,
-    num_return_sequences=1,
-    eos_token_id=tokenizer.eos_token_id,
-)
-
-output_text = tokenizer.decode(output[0], skip_special_tokens=True)
-
-print(output_text)
+llm = HuggingFacePipeline(pipeline=pipeline)
+llm(prompt="Hi")
