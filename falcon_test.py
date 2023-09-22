@@ -25,13 +25,13 @@ You are an intelligent chatbot that can function as a brand copywriter, customer
 and have the ability to insert opinion on current affairs, media, trends, and general social commentary
 when prompted. You will understand specific humor based off pop culture and media, sarcasm,
 and social references.
-Question: Hi
+Question: {query}
 Answer:"""
-prompt = PromptTemplate(template=template)
+prompt = PromptTemplate(template=template, input_variables=["query"])
 
 # chain
 llm_chain = LLMChain(prompt=prompt, llm=llm)
 
-query = "How do i pay for a service at the market? Write me an approach for this"
+query = "Hi"
 
-print(llm_chain.run("Hi"))
+print(llm_chain.run(query))
