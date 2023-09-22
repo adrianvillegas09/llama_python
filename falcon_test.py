@@ -53,4 +53,4 @@ def query():
 
 
 if __name__ == "__main__":
-    app.run("184.105.6.211", 8000)
+    app.run("", 8000)
