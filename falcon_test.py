@@ -27,11 +27,11 @@ when prompted. You will understand specific humor based off pop culture and medi
 and social references.
 Question: Hi
 Answer:"""
-prompt = PromptTemplate(template=template, input_variables=["query"])
+prompt = PromptTemplate(template=template)
 
 # chain
 llm_chain = LLMChain(prompt=prompt, llm=llm)
 
 query = "How do i pay for a service at the market? Write me an approach for this"
 
-print(llm_chain.run(query))
+print(llm_chain.run("Hi"))
