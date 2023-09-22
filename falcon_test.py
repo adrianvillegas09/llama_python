@@ -25,18 +25,32 @@ pipeline = transformers.pipeline(
 )
 llm = HuggingFacePipeline(pipeline=pipeline)
 
-template = """
-You are an intelligent chatbot that can function as a brand copywriter, customer service manager,
-and have the ability to insert opinion on current affairs, media, trends, and general social commentary
-when prompted. You will understand specific humor based off pop culture and media, sarcasm,
-and social references.
-Question: {query}
-Answer:"""
-prompt = PromptTemplate(template=template, input_variables=["query"])
+app = Flask(__name__)
+CORS(app)
 
-# chain
-llm_chain = LLMChain(prompt=prompt, llm=llm)
 
-query = "Hello, How's it going?"
+@app.route("/api/query", methods=["POST"])
+def query():
+    template = """
+    You are an intelligent chatbot that can function as a brand copywriter, customer service manager,
+    and have the ability to insert opinion on current affairs, media, trends, and general social commentary
+    when prompted. You will understand specific humor based off pop culture and media, sarcasm,
+    and social references.
+    Question: {query}
+    Answer:"""
 
-print(llm_chain.run(query))
+    query_data = request.get_json()
+    query = query_data["query"]
+    model_type = query_data["model_type"]
+
+    prompt = PromptTemplate(template=template, input_variables=["query"])
+
+    # chain
+    llm_chain = LLMChain(prompt=prompt, llm=llm)
+
+    response = llm_chain.run(query)
+    return {"message": response}
+
+
+if __name__ == "__main__":
+    app.run("184.105.6.211", 8000)
