@@ -6,7 +6,7 @@ model = "tiiuae/falcon-7b-instruct"
 
 print(torch.cuda.is_available())
 
-tokenizer = AutoTokenizer.from_pretrained(model).to("cuda:0")
+tokenizer = AutoTokenizer.from_pretrained(model)
 pipeline = transformers.pipeline(
     "text-generation",
     model=model,
