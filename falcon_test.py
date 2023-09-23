@@ -12,7 +12,7 @@ print(torch.cuda.is_available())
 model = "tiiuae/falcon-7b-instruct"
 model_llama = "NousResearch/Llama-2-7b-hf"
 
-tokenizer = AutoTokenizer.from_pretrained(model)
+tokenizer = AutoTokenizer.from_pretrained(model_llama)
 pipeline = transformers.pipeline(
     "text-generation",
     model=model,
