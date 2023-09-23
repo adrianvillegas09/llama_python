@@ -3,7 +3,8 @@ import transformers
 import torch
 from langchain.llms import HuggingFacePipeline
 from langchain import PromptTemplate, LLMChain
-from llama_cpp import Llama
+
+# from llama_cpp import Llama
 
 from flask import Flask, request, jsonify, render_template
 from flask_cors import CORS
@@ -25,7 +26,7 @@ pipeline = transformers.pipeline(
 )
 llm = HuggingFacePipeline(pipeline=pipeline)
 
-llm_llama = Llama(model_path="llama-2-7b-chat.ggmlv3.q2_K.bin.bin")
+# llm_llama = Llama(model_path="llama-2-7b-chat.ggmlv3.q2_K.bin.bin")
 
 app = Flask(__name__)
 CORS(app)
@@ -48,7 +49,7 @@ def query():
     prompt = PromptTemplate(template=template, input_variables=["query"])
 
     # chain
-    llm_chain = LLMChain(prompt=prompt, llm=llm_llama)
+    llm_chain = LLMChain(prompt=prompt, llm=llm)
 
     response = llm_chain.run(query)
     return {"message": response}
