@@ -109,9 +109,7 @@ generation_pipeline = pipeline(
 llm = HuggingFacePipeline(pipeline=generation_pipeline)
 
 prompt = PromptTemplate(input_variables=["history", "input"], template=template)
-memory = ConversationBufferWindowMemory(
-    memory_key="history", k=6, return_only_outputs=True
-)
+memory = ConversationBufferWindowMemory(memory_key="history", k=6, return_messages=True)
 chain = ConversationChain(
     llm=llm,
     memory=memory,
