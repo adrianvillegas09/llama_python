@@ -6,7 +6,7 @@ from langchain import PromptTemplate, LLMChain
 
 # from llama_cpp import Llama
 
-from flask import Flask, request, jsonify, render_template
+from flask import Flask, Response
 from flask_cors import CORS
 from threading import Thread
 
@@ -46,14 +46,17 @@ CORS(app)
 
 @app.route("/api/query", methods=["POST"])
 def query():
-    query_data = request.get_json()
-    query = query_data["query"]
-    model_type = query_data["model_type"]
+    try:
+        query_data = request.get_json()
+        query = query_data["query"]
+        model_type = query_data["model_type"]
 
-    print(query)
+        print(query)
 
-    response = llm_chain.run(query)
-    return {"message": response}
+        response = llm_chain.run(query)
+        return {"message": response}
+    except:
+        return Response("", status=400)
 
 
 if __name__ == "__main__":
