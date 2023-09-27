@@ -123,6 +123,7 @@ def query():
     print(query)
     try:
         res = chain(query)
+        print(res)
         return {"message": res["response"]}
     except Exception as inst:
         print(inst)
