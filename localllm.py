@@ -1,37 +1,51 @@
-import time
+import re
+import warnings
+from typing import List
+
 import torch
-from transformers import AutoTokenizer, AutoModelForCausalLM
-
-timeStart = time.time()
-
-tokenizer = AutoTokenizer.from_pretrained("tiiuae/falcon-7b-instruct")
-
-model = AutoModelForCausalLM.from_pretrained(
-    "tiiuae/falcon-7b-instruct",
-    torch_dtype=torch.bfloat16,
-    low_cpu_mem_usage=True,
+from langchain import PromptTemplate
+from langchain.chains import ConversationChain
+from langchain.chains.conversation.memory import ConversationBufferWindowMemory
+from langchain.llms import HuggingFacePipeline
+from langchain.schema import BaseOutputParser
+from transformers import (
+    AutoModelForCausalLM,
+    AutoTokenizer,
+    StoppingCriteria,
+    StoppingCriteriaList,
+    pipeline,
 )
 
-print("Load model time: ", -timeStart + time.time())
+warnings.filterwarnings("ignore", category=UserWarning)
 
-while True:
-    input_str = input("Enter: ")
-    input_token_length = input("Enter length: ")
+MODEL_NAME = "tiiuae/falcon-7b-instruct"
 
-    if input_str == "exit":
-        break
+model = AutoModelForCausalLM.from_pretrained(
+    MODEL_NAME, trust_remote_code=True, load_in_8bit=True, device_map="cuda:0"
+)
+model = model.eval()
 
-    timeStart = time.time()
+tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME)
 
-    inputs = tokenizer.encode(input_str, return_tensors="pt")
 
+prompt = """
+The following is a friendly conversation between a human and an AI. The AI is
+talkative and provides lots of specific details from its context.
+ 
+Current conversation:
+ 
+Human: Who is Dwight K Schrute?
+AI:
+""".strip()
+
+input_ids = tokenizer(prompt, return_tensors="pt").input_ids
+input_ids = input_ids.to(model.device)
+
+with torch.inference_mode():
     outputs = model.generate(
-        inputs,
-        max_new_tokens=int(input_token_length),
+        input_ids=input_ids,
+        generation_config=generation_config,
     )
 
-    output_str = tokenizer.decode(outputs[0])
-
-    print(output_str)
-
-    print("Time taken: ", -timeStart + time.time())
+response = tokenizer.decode(outputs[0], skip_special_tokens=True)
+print(response)
