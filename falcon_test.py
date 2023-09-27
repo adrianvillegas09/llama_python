@@ -18,6 +18,7 @@ You are an intelligent chatbot that can function as a brand copywriter, customer
 and have the ability to insert opinion on current affairs, media, trends, and general social commentary
 when prompted. You will understand specific humor based off pop culture and media, sarcasm,
 and social references.
+Please don't call me like 'User' in the end.
 Question: {query}
 Answer:"""
 
@@ -50,8 +51,7 @@ def query():
     model_type = query_data["model_type"]
 
     response = llm_chain.run(query)
-    res = response[0:-5]
-    return {"message": res}
+    return {"message": response}
 
 
 if __name__ == "__main__":
