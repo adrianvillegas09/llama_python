@@ -46,13 +46,12 @@ CORS(app)
 
 @app.route("/api/query", methods=["POST"])
 def query():
+    query_data = request.get_json()
+    query = query_data["query"]
+    model_type = query_data["model_type"]
+
+    print(query)
     try:
-        query_data = request.get_json()
-        query = query_data["query"]
-        model_type = query_data["model_type"]
-
-        print(query)
-
         response = llm_chain.run(query)
         return {"message": response}
     except:
