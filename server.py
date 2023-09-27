@@ -71,7 +71,7 @@ tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME)
 generation_config = model.generation_config
 generation_config.temperature = 0.5
 generation_config.num_return_sequences = 1
-generation_config.max_new_tokens = 8000
+generation_config.max_new_tokens = 2048
 generation_config.use_cache = False
 generation_config.repetition_penalty = 1.7
 generation_config.pad_token_id = tokenizer.eos_token_id
@@ -124,7 +124,8 @@ def query():
     try:
         res = chain(query)
         return {"message": res["response"]}
-    except:
+    except e:
+        print(e)
         return Response("", status=400)
 
 
