@@ -1,0 +1,6 @@
+einops
+accelerate
+flask
+torch
+flask_cors
+transformers

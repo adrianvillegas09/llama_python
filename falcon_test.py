@@ -50,7 +50,8 @@ def query():
     model_type = query_data["model_type"]
 
     response = llm_chain.run(query)
-    return {"message": response}
+    res = response[0:-4]
+    return {"message": res}
 
 
 if __name__ == "__main__":
