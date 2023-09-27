@@ -5,7 +5,7 @@ from typing import List
 import torch
 from langchain import PromptTemplate
 from langchain.chains import ConversationChain
-from langchain.chains.conversation.memory import ConversationBufferWindowMemory
+from langchain.memory import ConversationBufferWindowMemory
 from langchain.llms import HuggingFacePipeline
 from langchain.schema import BaseOutputParser
 from transformers import (
