@@ -6,7 +6,7 @@ from langchain import PromptTemplate, LLMChain
 
 # from llama_cpp import Llama
 
-from flask import Flask, Response
+from flask import Flask, Response, request
 from flask_cors import CORS
 from threading import Thread
 
