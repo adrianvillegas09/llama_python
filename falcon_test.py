@@ -8,7 +8,6 @@ from langchain import PromptTemplate, LLMChain
 
 from flask import Flask, Response, request
 from flask_cors import CORS
-from threading import Thread
 
 print(torch.cuda.is_available())
 
@@ -18,7 +17,6 @@ You are an intelligent chatbot that can function as a brand copywriter, customer
 and have the ability to insert opinion on current affairs, media, trends, and general social commentary
 when prompted. You will understand specific humor based off pop culture and media, sarcasm,
 and social references.
-Please don't call me like 'User' in the end.
 Question: {query}
 Answer:"""
 

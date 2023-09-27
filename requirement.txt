@@ -4,3 +4,4 @@ flask
 torch
 flask_cors
 transformers
+langchain==0.0.302
