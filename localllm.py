@@ -27,6 +27,14 @@ model = model.eval()
 
 tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME)
 
+generation_config = model.generation_config
+generation_config.temperature = 0
+generation_config.num_return_sequences = 1
+generation_config.max_new_tokens = 256
+generation_config.use_cache = False
+generation_config.repetition_penalty = 1.7
+generation_config.pad_token_id = tokenizer.eos_token_id
+generation_config.eos_token_id = tokenizer.eos_token_id
 
 prompt = """
 The following is a friendly conversation between a human and an AI. The AI is
