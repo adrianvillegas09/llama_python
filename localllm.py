@@ -35,6 +35,20 @@ class StopGenerationCriteria(StoppingCriteria):
         return False
 
 
+class CleanupOutputParser(BaseOutputParser):
+    def parse(self, text: str) -> str:
+        user_pattern = r"\nUser"
+        text = re.sub(user_pattern, "", text)
+        human_pattern = r"\nHuman:"
+        text = re.sub(human_pattern, "", text)
+        ai_pattern = r"\nAI:"
+        return re.sub(ai_pattern, "", text).strip()
+
+    @property
+    def _type(self) -> str:
+        return "output_parser"
+
+
 warnings.filterwarnings("ignore", category=UserWarning)
 
 MODEL_NAME = "tiiuae/falcon-7b-instruct"
@@ -55,13 +69,14 @@ generation_config.repetition_penalty = 1.7
 generation_config.pad_token_id = tokenizer.eos_token_id
 generation_config.eos_token_id = tokenizer.eos_token_id
 
-prompt = """
+template = """
 The following is a friendly conversation between a human and an AI. The AI is
 talkative and provides lots of specific details from its context.
  
 Current conversation:
+{history}
  
-Human: What is the capital of Canada?
+Human: {input}
 AI:
 """.strip()
 
@@ -93,5 +108,18 @@ generation_pipeline = pipeline(
 
 llm = HuggingFacePipeline(pipeline=generation_pipeline)
 
-res = llm(prompt)
-print(res)
+prompt = PromptTemplate(input_variables=["history", "input"], template=template)
+memory = ConversationBufferWindowMemory(
+    memory_key="history", k=6, return_only_outputs=True
+)
+chain = ConversationChain(
+    llm=llm,
+    memory=memory,
+    prompt=prompt,
+    output_parser=CleanupOutputParser(),
+    verbose=True,
+)
+
+text = "What is the capital of Canada?"
+res = chain(text)
+print(res["response"])
